@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameManagers : MonoBehaviour
 {
+    public AIScriptableObject AIScript;
     public GameObject containerGameOver;
     public BallManager manajerBola;
     public PaddleController PaddlePlayer1;
@@ -21,6 +22,17 @@ public class GameManagers : MonoBehaviour
 
     public void GameStart()
     {
+        if(!AIScript.playWithAI)
+        {
+            PaddlePlayer2.activationAI = false;
+            PaddlePlayer3.activationAI = false;
+            PaddlePlayer4.activationAI = false;
+        } else if(AIScript.playWithAI)
+        {
+            PaddlePlayer2.activationAI = true;
+            PaddlePlayer3.activationAI = true;
+            PaddlePlayer4.activationAI = true;
+        }
         manajerBola.MulaiSpawnBall();
     }
 

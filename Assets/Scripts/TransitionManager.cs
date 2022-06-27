@@ -3,9 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class TransitionManager : MonoBehaviour
 {
-    public void PlayGame()
+    public AIScriptableObject AIScript;
+
+    public void PlayHumanGame()
     {
         AudioManager.instance.Ketuk();
+        AIScript.playWithAI = false;
+        Debug.Log("Created by M Syarif Hidayatullah - 149251970101-195");
+        SceneManager.LoadScene("Game");
+    }
+
+    public void PlayAIGame()
+    {
+        AudioManager.instance.Ketuk();
+        AIScript.playWithAI = true;
         Debug.Log("Created by M Syarif Hidayatullah - 149251970101-195");
         SceneManager.LoadScene("Game");
     }
